@@ -2,7 +2,7 @@
 
 ---
 
-1. Stwórz fork tego repozytorium na GitHub w organizacji PJATK-ASI-2024. Jeśli to możliwe, Twoje repozytorium powinno być prywatne.
+1. Skopiowac plik lokalnie i stworzyć swoje repozytorium z nazwą Lab-1_<twój-numer-studenta> i umieścić prywatne repozytorium w organizacji PJATK-ASI-2024
    
 2. a) Zmień nazwę pliku `train.py` na `<twój-numer-studenta>.py`.  
    b) W skrypcie stwórz funkcję, która będzie generowała automatycznie dwa zbiory danych. Każdy zbiór ma być chmurą zbliżonych punktów, a zbiory powinny być na tyle odległe, aby można było gołym okiem określić ich położenie. Wielkość chmury powinna wynosić od 50 do 100 punktów.  
