@@ -1,6 +1,7 @@
 # Lab2---Obr-bka-danych
 
-### Wymogi do zadania:
+### Wymogi do zadania - nie tworzycie nowego repo tylko zmieniacie nazwe z Lab1 na Lab2 a treść z zadania jeden przenosie na brancha o nazwie zadania:
+
 
 #### 0. Wasza aplikacja ma automatycznie pobierać skrypt z repozytorium Lab2---Obr-bka-danych przy każdym odpaleniu Waszego Github Action.
 
