@@ -2,6 +2,8 @@
 
 ### Wymogi do zadania:
 
+#### 0. Wasza aplikacja ma automatycznie pobierać skrypt z repozytorium Lab2---Obr-bka-danych przy każdym odpaleniu Waszego Github Action.
+
 #### 1. Stworzenie Google Sheets i dodanie dostępów jako secrety z poziomu GitHub Actions - **3 punkty**
 
 - Student powinien:
