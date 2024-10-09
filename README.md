@@ -75,3 +75,8 @@
 - **Generowanie raportu z GitHub Actions** (2 punkty): Raport dotyczący przetworzonych danych na koniec procesu.
 - **Logger** (3 punkty): Użycie loggera do śledzenia działań w skrypcie.
 - **Poprawność użycia Gita** (2 punkty): Praca z GitHub zgodnie z dobrymi praktykami (commity, branchy, pull requesty).
+
+###
+
+skrypt jest uruchamiany w sposób:
+`python3 generator_danych.py -s XXXXX`
