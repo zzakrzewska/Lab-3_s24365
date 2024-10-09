@@ -79,4 +79,5 @@
 ###
 
 skrypt jest uruchamiany w sposób:
+
 `python3 generator_danych.py -s XXXXX`
