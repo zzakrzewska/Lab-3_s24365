@@ -41,7 +41,8 @@ def train_model():
     accuracy = accuracy_score(y_test, prediction)
 
     # Zapis wyniku
-    print(f"Model trained with accuracy: {accuracy * 100:.2f}%")
+    with open('accuracy.txt', 'w') as file:
+        file.write(f"Model trained with accuracy: {accuracy * 100:.2f}%\n")
 
 if __name__ == "__main__":
     train_model()
