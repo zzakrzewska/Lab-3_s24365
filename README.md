@@ -8,7 +8,7 @@
 #### 1. Stworzenie Google Sheets i dodanie dostępów jako secrety z poziomu GitHub Actions - **3 punkty**
 
 - Student powinien:
-  - Stworzyć arkusz Google Sheets, w którym umieści wygenerowane dane (może to być np. plik CSV z poprzedniego zadania).
+  - Stworzyć arkusz Google Sheets, w którym umieści wygenerowane dane.
   - Skonfigurować dostęp do Google Sheets przy użyciu Google API. Klucz API (lub dane uwierzytelniające) powinny zostać umieszczone jako **secret** w repozytorium GitHub.
   - Użyć GitHub Actions do wczytywania danych z Google Sheets, korzystając z zapisanych secretów.
 
