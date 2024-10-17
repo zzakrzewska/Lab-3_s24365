@@ -1,4 +1,6 @@
-numpy
-pandas
-faker
-argparse
+numpy~=2.1.2
+pandas~=2.2.3
+faker~=30.6.0
+argparse~=1.4.0
+requests~=2.32.3
+scikit-learn~=1.5.2
