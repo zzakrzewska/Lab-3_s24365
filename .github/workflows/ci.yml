@@ -17,7 +17,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Krok 2: Zainstaluj Python i zależności
+      # Krok 2: Instalacja Python i zależności
       - name: Python config
         uses: actions/setup-python@v5
         with:
@@ -26,12 +26,12 @@ jobs:
       - name: Install dependencies
         run: python -m pip install --upgrade pip && pip install -r requirements.txt
 
-      # Krok 3: Uruchom trenowanie modelu
+      # Krok 3: Uruchomienie skryptu
       - name: Run data cleaning
         env:
           API_KEY: ${{ secrets.LAB2_API_KEY }}
         run: python s24365.py
 
-      # Krok 4: Wyświetl wynik (accuracy)
+      # Krok 4: Wyświetlenie raportu z czyszczenia danych
       - name: Display report
         run: cat report.txt
