@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  train-model:
+  data-cleaning:
     runs-on: ubuntu-latest
 
     steps:
