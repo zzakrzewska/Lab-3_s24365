@@ -27,7 +27,7 @@ def clean_data(dataframe):
 
     return dataframe
 
-def binary_conversion(dataframe):
+def text_conversion(dataframe):
     dataframe = pd.get_dummies(dataframe, drop_first=True)
     return dataframe
 
@@ -46,7 +46,7 @@ def standardize_data(dataframe):
 def prepare_data(file_path):
     dataframe = get_data(file_path)
     dataframe = clean_data(dataframe)
-    dataframe = binary_conversion(dataframe)
+    dataframe = text_conversion(dataframe)
 
     return dataframe
 
