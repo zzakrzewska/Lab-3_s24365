@@ -35,10 +35,19 @@ def train_model(x_train, x_test, y_train, y_test):
     logging.info(f'RMSE: {rmse}')
     logging.info(f'R2: {r2}')
 
+    return mse, mae, rmse, r2
+
 def main(file_path):
     dataframe = prepare_data(file_path)
     x_train, x_test, y_train, y_test = split_data(dataframe)
-    train_model(x_train, x_test, y_train, y_test)
+    mse, mae, rmse, r2 = train_model(x_train, x_test, y_train, y_test)
+
+    with open('results.txt', 'w') as file:
+        file.write(f'Model results:\n'
+                   f'\tMSE: {mse}\n'
+                   f'\tMAE: {mae}\n'
+                   f'\tRMSE: {rmse}\n'
+                   f'\tR2: {r2}')
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO,
