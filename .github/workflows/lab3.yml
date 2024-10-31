@@ -2,7 +2,7 @@
 
 name: CI/CD Pipeline for Data prediction
 
-# Wykonuj akcje przy każdym pushu do gałęzi main
+# Wykonuj akcje on demand
 on:
   workflow_dispatch:
     branches:
