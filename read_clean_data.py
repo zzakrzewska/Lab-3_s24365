@@ -27,6 +27,21 @@ def clean_data(dataframe):
 
     return dataframe
 
+def clean_data_api(dataframe):
+    logging.info('Czyszczenie danych')
+
+    # Konwersja typow danych
+    logging.info('Zamiana liczb zapisanych jako tekst na numery')
+    dataframe['unemp'] = pd.to_numeric(dataframe['unemp'], errors='coerce')
+    dataframe['wage'] = pd.to_numeric(dataframe['wage'], errors='coerce')
+    dataframe['distance'] = pd.to_numeric(dataframe['distance'], errors='coerce')
+    dataframe['tuition'] = pd.to_numeric(dataframe['tuition'], errors='coerce')
+    dataframe['education'] = pd.to_numeric(dataframe['education'], errors='coerce')
+    dataframe[['unemp', 'wage', 'distance', 'tuition', 'education']] = \
+        dataframe[['unemp', 'wage', 'distance', 'tuition', 'education']].astype(float)
+
+    return dataframe
+
 def text_conversion(dataframe):
     dataframe = pd.get_dummies(dataframe, drop_first=True)
     return dataframe
@@ -43,11 +58,30 @@ def standardize_data(dataframe):
     logging.info('Wyczyszczono dane')
     return dataframe
 
+def standardize_data_api(dataframe):
+    # Standaryzacja danych
+    logging.info('Standaryzacja danych')
+    standard_scaler = StandardScaler()
+    dataframe.loc[:, ['unemp', 'wage', 'distance', 'tuition', 'education']] = (
+        standard_scaler.fit_transform(dataframe[['unemp', 'wage', 'distance', 'tuition', 'education']].astype(float)))
+    rows_standardized = len(dataframe)
+    logging.info('Dane ustandaryzowane. Ustandaryzowano %s wierszy', rows_standardized)
+
+    logging.info('Wyczyszczono dane')
+    return dataframe
+
 def prepare_data(file_path):
     dataframe = get_data(file_path)
     dataframe = clean_data(dataframe)
     dataframe = text_conversion(dataframe)
+    dataframe = standardize_data(dataframe)
 
+    return dataframe
+
+def prepare_api_input(dataframe):
+    dataframe = clean_data_api(dataframe)
+    dataframe = text_conversion(dataframe)
+    dataframe = standardize_data_api(dataframe)
     return dataframe
 
 def main(file_path):

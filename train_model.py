@@ -1,5 +1,6 @@
 import logging
 
+import joblib
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, root_mean_squared_error
 from sklearn.model_selection import train_test_split
@@ -11,7 +12,7 @@ def split_data(dataframe):
     x = dataframe.drop('score', axis=1)
     y = dataframe['score']
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
-
+    print(dataframe.to_string())
     return x_train, x_test, y_train, y_test
 
 def train_model(x_train, x_test, y_train, y_test):
@@ -35,12 +36,12 @@ def train_model(x_train, x_test, y_train, y_test):
     logging.info(f'RMSE: {rmse}')
     logging.info(f'R2: {r2}')
 
-    return mse, mae, rmse, r2
+    return mse, mae, rmse, r2, model
 
 def main(file_path):
-    dataframe = prepare_data(file_path)
+    dataframe, standard_scaler = prepare_data(file_path)
     x_train, x_test, y_train, y_test = split_data(dataframe)
-    mse, mae, rmse, r2 = train_model(x_train, x_test, y_train, y_test)
+    mse, mae, rmse, r2, model = train_model(x_train, x_test, y_train, y_test)
 
     with open('results.txt', 'w') as file:
         file.write(f'Model results:\n'
@@ -48,6 +49,10 @@ def main(file_path):
                    f'\tMAE: {mae}\n'
                    f'\tRMSE: {rmse}\n'
                    f'\tR2: {r2}')
+
+    joblib.dump(model, "model.pkl")
+    joblib.dump(standard_scaler, "standard_scaler.pkl")
+    logging.info('Model i scaler zostały zapisane')
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO,
