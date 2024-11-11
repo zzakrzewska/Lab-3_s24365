@@ -39,7 +39,7 @@ def train_model(x_train, x_test, y_train, y_test):
     return mse, mae, rmse, r2, model
 
 def main(file_path):
-    dataframe, standard_scaler = prepare_data(file_path)
+    dataframe = prepare_data(file_path)
     x_train, x_test, y_train, y_test = split_data(dataframe)
     mse, mae, rmse, r2, model = train_model(x_train, x_test, y_train, y_test)
 
@@ -51,8 +51,7 @@ def main(file_path):
                    f'\tR2: {r2}')
 
     joblib.dump(model, "model.pkl")
-    joblib.dump(standard_scaler, "standard_scaler.pkl")
-    logging.info('Model i scaler zostały zapisane')
+    logging.info('Model został zapisany')
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO,
